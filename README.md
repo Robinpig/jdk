@@ -1,5 +1,38 @@
+
+
+
+> Ref [building.md](https://github.com/openjdk/jdk/blob/master/doc/building.md)
+
+支持编译的平台:
+[Supported Build Platforms](https://wiki.openjdk.org/display/Build/Supported+Build+Platforms)
+
+Mac aarch64从jdk11开始支持
+
+
+
+
+1. Get the complete source code:<br/>
+   `git clone https://git.openjdk.org/jdk/`
+2. Run configure:<br/>
+   `bash configure --with-debug-level=slowdebug --with-jvm-variants=server`
+   当WSL下 需要增加`--build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu`
+    若配置jdk麻烦 可直接使用`--with-boot-jdk=<jdk path>`
+3. Run make:<br/>
+   `make images`
+
+
+
+[segmentation fault in the jvm](https://mail.openjdk.org/pipermail/jdk7-dev/2011-March/001983.html)
+
+
 ## Compile
 
+Mac
+
+make sure you have installed Xcode
+```shell
+brew install ccache freetype autoconf
+```
 
 ## Debug
 
@@ -40,3 +73,10 @@ configure exiting with result code 1
 ```shell
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 ```
+
+
+
+
+
+
+
