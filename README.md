@@ -47,6 +47,27 @@ brew install ccache freetype autoconf
 
 操作路径：Tools -> Compilation Database -> Change Project Root,选中OpenJDK的源码根目录,CLion再次扫描文件和建立index,结束后就可以看到源码了,且不会提示无法找到头文件
 
+Settings -> build, Execution, Deployment -> Custom Build Targets
+
+create External Tools
+
+- Program: make
+- Arguments: CONF=xxxx
+- Working directory: root directory
+
+
+create Toolchain
+
+
+
+edit Run/Debug Configurations
+
+create Custom Build Application
+
+- Target: toolchain
+- Executable: java
+- Program arguments: -version
+
 
 如果进入 LLDB 断点，可以在 LLDB 命令行中输入 pro hand -p true -s false SIGILL SIGSEGV SIGBUS
 
