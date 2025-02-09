@@ -25,5 +25,13 @@ make images
 ```
 
 
+mac
+
+```shell
+brew install openjdk@21
+
+bash configure --with-debug-level=slowdebug --with-jvm-variants=server
+make images
+```
 
 
