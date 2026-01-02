@@ -49,14 +49,14 @@ brew install ccache freetype autoconf
 
 Settings -> build, Execution, Deployment -> Custom Build Targets
 
-create External Tools
+给 Build 和 Clean 创建两个 External Tools: make 和 make clean
 
 - Program: make
-- Arguments: CONF=xxxx
+- Arguments: all/clean
 - Working directory: root directory
 
 
-create Toolchain
+
 
 
 
@@ -68,9 +68,17 @@ create Custom Build Application
 - Executable: java
 - Program arguments: -version
 
+**为了防止项目每次启动都build，先将Build删除掉**
+
 
 如果进入 LLDB 断点，可以在 LLDB 命令行中输入 pro hand -p true -s false SIGILL SIGSEGV SIGBUS
 
+Ubuntu使用 GDB 可以在 home 目录创建 .gdbinit 文件
+添加如下内容用于忽略信号
+```
+handle SIGSEGV pass noprint nostop 
+handle SIGBUS pass noprint nostop
+```
 
 
 ## Issues
